@@ -1,0 +1,3 @@
+host: argo-cd.test.io
+user: admin
+passwd: testPasswd
