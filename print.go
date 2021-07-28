@@ -4,8 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"reflect"
-	"strconv"
-	"time"
 
 	"github.com/pelletier/go-toml/v2"
 
@@ -45,3 +43,7 @@ func PrintToml(in interface{}) {
 	Printf(string(res))
 }
 
+func Print(x interface{}) {
+	Printf("Input Type:%T", x)
+	displayPath("value", reflect.ValueOf(x))
+}
