@@ -23,7 +23,7 @@ func NewRestClient() *RestClient {
 }
 
 func (cli *RestClient) DoGet(url string, queryParams map[string]string) (*gjson.Result, error) {
-	log.Debug().Str("url,", url).Msg("send request get")
+	log.Debug().Str("url", url).Interface("params", queryParams).Msg("send request get")
 
 	if queryParams != nil {
 		cli.Request = cli.SetQueryParams(queryParams)
