@@ -11,24 +11,21 @@ import (
 )
 
 type RestClient struct {
-	*resty.Request
+	*resty.Client
 }
 
 func NewRestClient() *RestClient {
 	out := &RestClient{}
-	client := resty.New().SetTimeout(10 * time.Second)
-	req := client.R().SetHeader("Accept", "application/json")
-	out.Request = req
+	out.Client = resty.New().SetTimeout(30*time.Second).SetHeader("Accept", "application/json")
 	return out
 }
 
 func (cli *RestClient) DoGet(url string, queryParams map[string]string) (*gjson.Result, error) {
 	log.Debug().Str("url", url).Interface("params", queryParams).Msg("send request get")
-
 	if queryParams != nil {
-		cli.Request = cli.SetQueryParams(queryParams)
+		cli.Client = cli.SetQueryParams(queryParams)
 	}
-	resp, err := cli.Get(url)
+	resp, err := cli.R().Get(url)
 	if err != nil {
 		return nil, errors.WithStack(err)
 	}
