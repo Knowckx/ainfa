@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/go-resty/resty/v2"
 	"github.com/pkg/errors"
 	"github.com/rs/zerolog/log"
 	"github.com/tidwall/gjson"
-	"gopkg.in/resty.v1"
 )
 
 type RestClient struct {
