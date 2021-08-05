@@ -12,6 +12,12 @@ func Test_GetProjRootPath(t *testing.T) {
 	return
 }
 
+func Test_GetProjFilePath(t *testing.T) {
+	res := GetProjFilePath("in-fa", "config")
+	fmt.Println(res)
+	return
+}
+
 func Test_GetFilePath(t *testing.T) {
 	res := GetFilePath("testfile", "azure.toml")
 	fmt.Println(res)

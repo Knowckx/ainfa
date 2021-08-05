@@ -33,3 +33,13 @@ func GetProjRootPath(projName string) string {
 	execPath := filepath.Join(paths[0], projName)
 	return execPath
 }
+
+func GetProjFilePath(mids ...string) string {
+	if len(mids) < 2 {
+		return ""
+	}
+	root := GetProjRootPath(mids[0])
+	rest := filepath.Join(mids[1:]...)
+	out := filepath.Join(root, rest)
+	return out
+}
