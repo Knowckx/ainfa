@@ -1,4 +1,4 @@
-package infa
+package path
 
 import (
 	"os"
@@ -21,7 +21,7 @@ func GetFilePath(mids ...string) string {
 	return out
 }
 
-func GetRootPathProjName(projName string) string {
+func GetProjRootPath(projName string) string {
 	path, err := os.Getwd()
 	if err != nil {
 		panic(err)
