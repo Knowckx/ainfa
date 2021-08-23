@@ -1,4 +1,4 @@
-package infa
+package format
 
 import (
 	"io/ioutil"

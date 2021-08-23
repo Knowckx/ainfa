@@ -1,8 +1,10 @@
-package infa
+package format
 
 import (
 	"io/ioutil"
+	"os"
 
+	"github.com/pkg/errors"
 	"github.com/rs/zerolog/log"
 	"gopkg.in/yaml.v2"
 )
@@ -19,4 +21,12 @@ func LoadYamlFile(f string, data interface{}) error {
 		return err
 	}
 	return err
+}
+
+func SaveYamlFile(fileName string, in interface{}) error {
+	data, err := yaml.Marshal(in)
+	fileName = fileName + ".yaml"
+	fMod := os.FileMode(0644)
+	err = os.WriteFile(fileName, data, fMod)
+	return errors.WithStack(err)
 }
