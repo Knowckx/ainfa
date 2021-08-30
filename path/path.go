@@ -6,21 +6,6 @@ import (
 	"strings"
 )
 
-func GetRootPath() string {
-	path, err := os.Getwd()
-	if err != nil {
-		panic(err)
-	}
-	return path
-}
-
-func GetFilePath(mids ...string) string {
-	midPath := filepath.Join(mids...)
-	root := GetRootPath()
-	out := filepath.Join(root, midPath)
-	return out
-}
-
 func GetProjRootPath(projName string) string {
 	path, err := os.Getwd()
 	if err != nil {
@@ -31,6 +16,7 @@ func GetProjRootPath(projName string) string {
 	}
 	paths := strings.Split(path, projName)
 	execPath := filepath.Join(paths[0], projName)
+	execPath = execPath + "/"
 	return execPath
 }
 
@@ -41,5 +27,6 @@ func GetProjFilePath(mids ...string) string {
 	root := GetProjRootPath(mids[0])
 	rest := filepath.Join(mids[1:]...)
 	out := filepath.Join(root, rest)
+	out = out + "/"
 	return out
 }
