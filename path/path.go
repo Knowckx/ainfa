@@ -30,3 +30,11 @@ func GetProjFilePath(mids ...string) string {
 	out = out + "/"
 	return out
 }
+
+func GetRootPath() string {
+	path, err := os.Getwd()
+	if err != nil {
+		panic(err)
+	}
+	return path
+}

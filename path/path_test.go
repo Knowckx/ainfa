@@ -16,3 +16,9 @@ func Test_GetProjFilePath(t *testing.T) {
 	fmt.Println(res)
 	return
 }
+
+func Test_GetRootPath(t *testing.T) {
+	res := GetRootPath()
+	fmt.Println(res)
+	return
+}
