@@ -12,7 +12,8 @@ func Test_GetProjRootPath(t *testing.T) {
 }
 
 func Test_GetProjFilePath(t *testing.T) {
-	res := GetProjFilePath("in-fa", "config")
+	root := GetRootPath()
+	res := GetFilePath(root, "config")
 	fmt.Println(res)
 	return
 }
