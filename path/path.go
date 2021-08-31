@@ -3,14 +3,29 @@ package path
 import (
 	"os"
 	"path/filepath"
-	"runtime"
 	"strings"
 )
 
 func GetAppPath() string {
-	_, ss, _, _ := runtime.Caller(0)
-	basepath := filepath.Dir(ss)
-	return basepath
+	dir, _ := os.Getwd()
+
+	exePath := os.Args[0]
+	if len(exePath) == 0 || strings.HasSuffix(exePath, ".test") {
+		return dir
+	}
+
+	sep := string(os.PathSeparator)
+	sepCount := strings.Count(exePath, sep)
+	if sepCount <= 1 {
+		return dir
+	}
+
+	idx1 := strings.Index(exePath, sep)
+	idx2 := strings.LastIndex(exePath, sep)
+
+	add := exePath[idx1:idx2]
+	out := dir + add
+	return out
 }
 
 func GetProjRootPath(projName string) string {
