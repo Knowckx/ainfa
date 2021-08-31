@@ -29,17 +29,14 @@ func GetAppPath() string {
 }
 
 func GetProjRootPath(projName string) string {
-	path, err := os.Getwd()
-	if err != nil {
-		panic(err)
-	}
+	path := GetAppPath()
 	if projName == "" || !strings.Contains(path, projName) {
 		return path
 	}
 	paths := strings.Split(path, projName)
-	execPath := filepath.Join(paths[0], projName)
-	execPath = execPath + "/"
-	return execPath
+	rPath := filepath.Join(paths[0], projName)
+	rPath = rPath + "/"
+	return rPath
 }
 
 func GetFilePath(root string, mids ...string) string {
