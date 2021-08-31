@@ -1,20 +1,16 @@
 package path
 
 import (
-	"fmt"
 	"os"
-	"os/exec"
 	"path/filepath"
+	"runtime"
 	"strings"
 )
 
 func GetAppPath() string {
-	fmt.Println(os.Args)
-	file, _ := exec.LookPath(os.Args[0])
-	path, _ := filepath.Abs(file)
-	index := strings.LastIndex(path, string(os.PathSeparator))
-
-	return path[:index]
+	_, ss, _, _ := runtime.Caller(0)
+	basepath := filepath.Dir(ss)
+	return basepath
 }
 
 func GetProjRootPath(projName string) string {
