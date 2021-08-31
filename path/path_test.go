@@ -12,14 +12,14 @@ func Test_GetProjRootPath(t *testing.T) {
 }
 
 func Test_GetProjFilePath(t *testing.T) {
-	root := GetRootPath()
+	root := GetAppPath()
 	res := GetFilePath(root, "config")
 	fmt.Println(res)
 	return
 }
 
-func Test_GetRootPath(t *testing.T) {
-	res := GetRootPath()
+func Test_GetAppPath(t *testing.T) {
+	res := GetAppPath()
 	fmt.Println(res)
 	return
 }
