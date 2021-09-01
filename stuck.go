@@ -16,12 +16,20 @@ func BeStuck() {
 
 func GetInput(c chan<- bool) {
 	input := ""
+	maxLoop := 3
+	cnt := 0
 	for {
+		cnt++
 		fmt.Scanln(&input)
 		if input == "exit" || input == "quit" {
 			break
 		}
-		fmt.Println(TipExit)
+		fmt.Println("input is", input)
+		if cnt <= maxLoop {
+			fmt.Println(TipExit)
+		} else {
+			break
+		}
 	}
 	c <- true
 }
