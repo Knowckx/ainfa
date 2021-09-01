@@ -14,6 +14,11 @@ func BeStuck() {
 	fmt.Println("bye-bye")
 }
 
+func Stuck() {
+	var c = make(chan bool)
+	<-c
+}
+
 func GetInput(c chan<- bool) {
 	input := ""
 	maxLoop := 3
