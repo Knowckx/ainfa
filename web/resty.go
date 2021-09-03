@@ -29,11 +29,11 @@ func (cli *RestClient) DoGet(url string, queryParams map[string]string) (*gjson.
 	if err != nil {
 		return nil, errors.WithStack(err)
 	}
-
 	err = CheckRestyResponse(resp)
 	if err != nil {
 		return nil, errors.WithStack(err)
 	}
+	cli.SetCookies(resp.Cookies())
 	res := gjson.ParseBytes(resp.Body())
 	return &res, nil
 }
@@ -48,6 +48,7 @@ func (cli *RestClient) DoPost(url string, body interface{}) (*gjson.Result, erro
 	if err != nil {
 		return nil, errors.WithStack(err)
 	}
+	cli.SetCookies(resp.Cookies())
 	res := gjson.ParseBytes(resp.Body())
 	return &res, nil
 }
