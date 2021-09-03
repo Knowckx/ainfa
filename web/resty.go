@@ -38,6 +38,20 @@ func (cli *RestClient) DoGet(url string, queryParams map[string]string) (*gjson.
 	return &res, nil
 }
 
+func (cli *RestClient) DoPost(url string, body interface{}) (*gjson.Result, error) {
+	log.Debug().Str("post url,", url).Interface("body", body).Send()
+	resp, err := cli.R().SetBody(body).Post(url)
+	if err != nil {
+		return nil, errors.WithStack(err)
+	}
+	err = CheckRestyResponse(resp)
+	if err != nil {
+		return nil, errors.WithStack(err)
+	}
+	res := gjson.ParseBytes(resp.Body())
+	return &res, nil
+}
+
 func CheckRestyResponse(resp *resty.Response) error {
 	if resp.IsError() {
 		log.Error().Int("Status Code", resp.StatusCode()).Msg("Http Request Failed")
