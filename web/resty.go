@@ -38,6 +38,23 @@ func (cli *RestClient) DoGet(url string, queryParams map[string]string) (*gjson.
 	return &res, nil
 }
 
+func (cli *RestClient) DoGetResp(url string, queryParams map[string]string) (*resty.Response, error) {
+	log.Debug().Str("url", url).Interface("params", queryParams).Msg("send request get")
+	if queryParams != nil {
+		cli.Client = cli.SetQueryParams(queryParams)
+	}
+	resp, err := cli.R().Get(url)
+	if err != nil {
+		return nil, errors.WithStack(err)
+	}
+	err = CheckRestyResponse(resp)
+	if err != nil {
+		return nil, errors.WithStack(err)
+	}
+	cli.SetCookies(resp.Cookies())
+	return resp, nil
+}
+
 func (cli *RestClient) DoPost(url string, body interface{}) (*gjson.Result, error) {
 	log.Debug().Str("post url,", url).Interface("body", body).Send()
 	resp, err := cli.R().SetBody(body).Post(url)
