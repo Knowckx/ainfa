@@ -33,7 +33,7 @@ func GetChromeCookies() []*kooky.Cookie {
 }
 
 func PrintCookies(cks []*http.Cookie) {
-	infa.Printf("Domain Name val Path")
+	infa.Printf("Domain Name value Path -- len %d", len(cks))
 	for _, ck := range cks {
 		PrintCookie(ck)
 	}
