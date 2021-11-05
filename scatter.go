@@ -13,7 +13,7 @@ func PanicIfErr(err error) {
 }
 
 func Getenv(key string) string {
-	value := os.Getenv("key")
+	value := os.Getenv(key)
 	if value == "" {
 		log.Warn().Str("key", key).Msg("Get environment variable failed. return nil.")
 	}
