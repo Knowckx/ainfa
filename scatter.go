@@ -19,16 +19,3 @@ func Getenv(key string) string {
 	}
 	return value
 }
-
-func ShortStr(in string) string {
-	leng := 7
-	return ShortStrLen(in, leng)
-}
-
-func ShortStrLen(in string, leng int) string {
-	out := in
-	if len(out) > leng {
-		out = out[0:leng]
-	}
-	return out
-}

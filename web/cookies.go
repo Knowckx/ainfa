@@ -8,6 +8,7 @@ import (
 	"github.com/zellyn/kooky"
 	"github.com/zellyn/kooky/chrome"
 	infa "github.tools.sap/aeolia/in-fa"
+	"github.tools.sap/aeolia/in-fa/util"
 )
 
 func GetHostCookies(host string) []*http.Cookie {
@@ -40,6 +41,6 @@ func PrintCookies(cks []*http.Cookie) {
 }
 
 func PrintCookie(ck *http.Cookie) {
-	val := ShortStr(ck.Value)
+	val := util.ShortStr(ck.Value)
 	infa.Printf("%s %s %s %s", ck.Domain, ck.Name, val, ck.Path)
 }
