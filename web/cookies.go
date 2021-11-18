@@ -43,12 +43,3 @@ func PrintCookie(ck *http.Cookie) {
 	val := ShortStr(ck.Value)
 	infa.Printf("%s %s %s %s", ck.Domain, ck.Name, val, ck.Path)
 }
-
-func ShortStr(in string) string {
-	leng := 10
-	out := in
-	if len(out) > leng {
-		out = out[0:leng] + ".."
-	}
-	return out
-}
