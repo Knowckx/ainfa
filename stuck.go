@@ -45,8 +45,8 @@ func GetInput(c chan<- bool) {
 // useage: defer ExecTime(functionName)()
 func RecordExecTime(funcName string) func() {
 	start := time.Now()
-	log.Printf("enter %s", funcName)
+	log.Printf("enter function %s", funcName)
 	return func() {
-		log.Printf("exit. Time Usege:%s", time.Since(start))
+		log.Printf("exit function %s. Time Usege:%s", funcName, time.Since(start))
 	}
 }
