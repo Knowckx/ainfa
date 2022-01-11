@@ -4,4 +4,4 @@ In-fa is just a collection of utils of golang
 Repo was created after Typhoon In-fa tracking inland south of Shanghai in July 2021.
 
 # useage
-go get github.tools.sap/aeolia/in-fa
+go get github.com/Knowckx/infa

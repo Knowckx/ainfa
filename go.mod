@@ -1,4 +1,4 @@
-module github.tools.sap/aeolia/in-fa
+module github.com/Knowckx/infa
 
 go 1.16
 

@@ -14,7 +14,6 @@ func DealSliceByStep() {
 		if next > total {
 			next = total
 		}
-		// Processing, the
 		log.Info().Msgf("current progress is [%d-%d] / %d", indexNow, next, total)
 		DoList(tarList[indexNow:next])
 		indexNow = next

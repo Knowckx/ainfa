@@ -4,11 +4,11 @@ import (
 	"net/http"
 	"os"
 
+	infa "github.com/Knowckx/infa"
+	"github.com/Knowckx/infa/util"
 	"github.com/rs/zerolog/log"
 	"github.com/zellyn/kooky"
 	"github.com/zellyn/kooky/chrome"
-	infa "github.tools.sap/aeolia/in-fa"
-	"github.tools.sap/aeolia/in-fa/util"
 )
 
 func GetHostCookies(host string) []*http.Cookie {
