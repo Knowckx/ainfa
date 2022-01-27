@@ -12,3 +12,23 @@ func ShortStrLen(in string, leng int) string {
 	}
 	return out
 }
+
+// Compress Spaces and Tap to one space
+func CompressSpaces(in string) string {
+	out := ""
+	var added int
+	for _, key := range in {
+		if key == ' ' || key == '	' {
+			if added == 0 {
+				out += " "
+				added = 1
+			} else {
+				added++
+			}
+		} else {
+			out += string(key)
+			added = 0
+		}
+	}
+	return out
+}
