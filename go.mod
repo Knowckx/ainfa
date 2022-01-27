@@ -1,4 +1,4 @@
-module github.com/Knowckx/infa
+module github.tools.sap/aeolia/in-fa
 
 go 1.16
 
@@ -11,7 +11,6 @@ require (
 	github.com/tidwall/gjson v1.8.1
 	github.com/zellyn/kooky v0.0.0-20210408152652-87b89e95f98f
 	gopkg.in/yaml.v2 v2.4.0
-	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b // indirect
 	gorm.io/driver/postgres v1.2.3
 	gorm.io/gorm v1.22.4
 )

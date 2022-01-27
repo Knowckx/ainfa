@@ -3,7 +3,7 @@ package web
 import (
 	"testing"
 
-	infa "github.com/Knowckx/infa"
+	infa "github.tools.sap/aeolia/in-fa"
 )
 
 func Test_PrintCookies(t *testing.T) {
