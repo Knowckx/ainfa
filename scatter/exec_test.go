@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.tools.sap/aeolia/in-fa/util"
+	"github.com/Knowckx/ainfa/util"
 )
 
 func Test_ParseExec(t *testing.T) {

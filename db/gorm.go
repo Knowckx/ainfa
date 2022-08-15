@@ -1,6 +1,7 @@
 package db
 
 import (
+	"bytes"
 	"fmt"
 	"log"
 	"os"
@@ -35,12 +36,22 @@ type PGConnInfo struct {
 	DATABASE string
 	USER     string
 	PASWD    string
+	SSLMode  string
 }
 
 func (in PGConnInfo) String() string {
-	dsn := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s  sslmode=disable  application_name=%s TimeZone=Asia/Shanghai",
-		in.HOST, in.PORT, in.USER, in.PASWD, in.DATABASE, "gorm",
-	)
+	buf := bytes.Buffer{}
+	baseInfo := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s ", in.HOST, in.PORT, in.USER, in.PASWD, in.DATABASE)
+	buf.WriteString(baseInfo)
+	info := fmt.Sprintf("application_name=%s TimeZone=Asia/Shanghai ", "gorm")
+	buf.WriteString(info)
+
+	if in.SSLMode == "" {
+		buf.WriteString("sslmode=disable ")
+	} else {
+		buf.WriteString("sslmode=prefer ")
+	}
+	dsn := buf.String()
 	return dsn
 }
 
@@ -53,4 +64,13 @@ func ConnPG(in *PGConnInfo) (db *gorm.DB, err error) {
 		return nil, errors.WithStack(err)
 	}
 	return db, nil
+}
+
+// local
+func NewPGConnInfoLocal() *PGConnInfo {
+	tdb := &PGConnInfo{}
+	tdb.HOST = "127.0.0.1"
+	tdb.PORT = "5432"
+	tdb.DATABASE = "postgres"
+	return tdb
 }

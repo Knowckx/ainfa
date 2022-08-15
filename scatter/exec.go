@@ -4,9 +4,9 @@ import (
 	"os/exec"
 	"strings"
 
+	"github.com/Knowckx/ainfa/util"
 	"github.com/pkg/errors"
 	"github.com/rs/zerolog/log"
-	"github.tools.sap/aeolia/in-fa/util"
 )
 
 type Command struct {

@@ -19,7 +19,7 @@ func Printf(format string, a ...interface{}) (n int, err error) {
 }
 
 func PrintJson(in interface{}) {
-	res, err := json.Marshal(in)
+	res, err := json.MarshalIndent(in, "", "\t")
 	if err != nil {
 		log.Error().Stack().Err(err).Send()
 		return

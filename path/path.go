@@ -6,6 +6,8 @@ import (
 	"strings"
 )
 
+const InfaProjName = "in-fa"
+
 func GetAppPath() string {
 	dir, _ := os.Getwd()
 
@@ -42,5 +44,19 @@ func GetProjRootPath(projName string) string {
 func GetFilePath(root string, mids ...string) string {
 	rest := filepath.Join(mids...)
 	out := filepath.Join(root, rest)
+	return out
+}
+
+func LocFilePath(projName string, mids ...string) string {
+	rootPath := GetProjRootPath(projName)
+	rest := filepath.Join(mids...)
+	out := filepath.Join(rootPath, rest)
+	return out
+}
+
+func GetInfaPath(mids ...string) string {
+	rootPath := GetProjRootPath(InfaProjName)
+	rest := filepath.Join(mids...)
+	out := filepath.Join(rootPath, rest)
 	return out
 }
