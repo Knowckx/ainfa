@@ -6,6 +6,6 @@ import (
 )
 
 func Test_LocFilePath(t *testing.T) {
-	out := LocFilePath("in-fa", "util", "util.go")
+	out := LocFilePath("ainfa", "util", "util.go")
 	fmt.Println(out)
 }
