@@ -4,29 +4,35 @@ import (
 	"fmt"
 	"time"
 
-	infa "github.com/Knowckx/ainfa"
 	"github.com/Knowckx/ainfa/parallel"
 )
 
-// used to test parallel
+/* 测试并发 */
+
+// 包装一下需要放到协程的参数 | 用户自己声明
+type InputArgs struct {
+	*parallel.ProcessPool
+	Args string // 带入的参数
+}
+
 func main() {
-	pa := parallel.NewParallel(4)
-	for i := 0; i < 5; i++ {
-		v := i
-		pa.Apply()
-		go ParallelDo(pa, v)
+	total := 5                    // 任务总数
+	wg := parallel.NewWaitPool(2) // 1 声明同时跑的最大的协程数量
+	for i := 0; i < total; i++ {
+		wg.Add(1) // 2 协程数量+1, 超过限制会卡住
+		in := &InputArgs{
+			ProcessPool: parallel.NewProcessPool(wg, i+1, total),
+			Args:        fmt.Sprintf("Test Value %d", i+1),
+		}
+		go Woker(in)
 	}
-	infa.BeStuck()
+	wg.Wait()
+	fmt.Println("All Work Finidshed")
 }
 
-func ParallelDo(pa *parallel.Parallel, i int) {
-	args := fmt.Sprintf("%d", i)
-	Worker(args)
-	pa.Done()
-}
-
-func Worker(info string) {
-	fmt.Println("Working", info)
+func Woker(in *InputArgs) {
+	defer in.Done() // 3 释放
+	fmt.Printf("Working on the task InputArgs:%s, process %s.\n", in.Args, in.Process())
 	time.Sleep(3 * time.Second)
-	fmt.Println("Working Finidsh", info)
+	fmt.Println("Working Finidsh", in.Args)
 }

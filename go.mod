@@ -3,7 +3,7 @@ module github.com/Knowckx/ainfa
 go 1.16
 
 require (
-	github.com/go-resty/resty/v2 v2.6.0
+	github.com/go-resty/resty/v2 v2.7.0
 	github.com/pelletier/go-toml/v2 v2.0.0-beta.3
 	github.com/pkg/errors v0.9.1
 	github.com/rs/zerolog v1.23.0
@@ -13,4 +13,5 @@ require (
 	gopkg.in/yaml.v2 v2.4.0
 	gorm.io/driver/postgres v1.2.3
 	gorm.io/gorm v1.22.4
+	k8s.io/client-go v0.25.0
 )

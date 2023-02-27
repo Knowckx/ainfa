@@ -1,6 +1,7 @@
 package scatter
 
 import (
+	"bytes"
 	"fmt"
 	"testing"
 
@@ -16,9 +17,15 @@ func Test_ParseExec(t *testing.T) {
 func Test_RunCommand(t *testing.T) {
 	// in := "  ls  -l "
 	// in := "kubecm switch eureka--cd"
-	in := "kubectl -n smec get secret eureka -o yaml"
+	in := "sh test.sh"
+	// in := "kubectl -n smec get secret eureka -o yaml"
 	cmd := NewCommand(in)
-	cmd.Run()
+	var outb, errb bytes.Buffer
+	cmd.Stderr = &errb
+	cmd.Stdout = &outb
+	err := cmd.RunCommand() // 这个错误没收集全
+	fmt.Println(err)
+	fmt.Println("stdout:", outb.String(), "stderr:", errb.String())
 }
 
 func Test_CompressSpaces(t *testing.T) {

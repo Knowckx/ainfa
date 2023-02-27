@@ -5,4 +5,3 @@ Repo was created after Typhoon In-fa tracking inland south of Shanghai in July 2
 
 # useage
 go get github.com/Knowckx/ainfa
-

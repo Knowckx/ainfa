@@ -21,16 +21,12 @@ func Getenv(key string) string {
 	return value
 }
 
-/* Time Start */
-
 func FormatTime(in time.Time) string {
 	return in.Format(time.RFC3339)
 }
 
-// 有的时候 服务器的时间就是UTC 需要使用SH的时候
+// server time use zone Shanghai.
 func SHTime(in time.Time) time.Time {
 	loc, _ := time.LoadLocation("Asia/Shanghai")
 	return in.In(loc)
 }
-
-/* Time End */

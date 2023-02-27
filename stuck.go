@@ -8,17 +8,10 @@ import (
 
 const TipExit = "type in 'exit' or 'quit'"
 
-func BeStuck() {
-	fmt.Println("wait for cancel sign. " + TipExit)
+// Sometime, we need block the main goroutine, Otherwise the whole program will quit.
+func BeBlock() {
 	var cquit = make(chan bool)
-	go GetInput(cquit)
 	<-cquit
-	fmt.Println("bye-bye")
-}
-
-func Stuck() {
-	var c = make(chan bool)
-	<-c
 }
 
 func GetInput(c chan<- bool) {

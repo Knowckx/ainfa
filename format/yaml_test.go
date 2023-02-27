@@ -20,10 +20,10 @@ func Test_SaveJson(t *testing.T) {
 }
 
 /*
-	Yaml解析的字段匹配需要注意下，结构体字段我们习惯大写，
-	但是对应的Yaml文件的key需要是小写这个包才会自动匹配。
-	假如两边都是大写，注释`yaml:"URL"`就是必需的
-	嵌套的结构体：`yaml:",inline"`
+Yaml解析的字段匹配需要注意下，结构体字段我们习惯大写，
+但是对应的Yaml文件的key需要是小写这个包才会自动匹配。
+假如两边都是大写，注释`yaml:"URL"`就是必需的
+嵌套的结构体：`yaml:",inline"`
 */
 type ClientInfo struct {
 	URL          string `yaml:"URL"`
