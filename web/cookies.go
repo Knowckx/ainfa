@@ -8,7 +8,7 @@ import (
 	"github.com/Knowckx/ainfa/util"
 	"github.com/rs/zerolog/log"
 	"github.com/zellyn/kooky"
-	"github.com/zellyn/kooky/chrome"
+	"github.com/zellyn/kooky/browser/chrome"
 )
 
 func GetHostCookies(host string) []*http.Cookie {
