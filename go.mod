@@ -1,9 +1,8 @@
-module infa
+module github.com/Knowckx/infa
 
 go 1.20
 
 require (
-	github.com/Knowckx/ainfa v0.0.0-20230227080131-314971f9f57a
 	github.com/go-resty/resty/v2 v2.7.0
 	github.com/pelletier/go-toml/v2 v2.0.7
 	github.com/pkg/errors v0.9.1

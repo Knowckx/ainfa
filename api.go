@@ -1,11 +1,11 @@
 package infa
 
 import (
-	"github.com/Knowckx/ainfa/format"
-	"github.com/Knowckx/ainfa/parallel"
-	"github.com/Knowckx/ainfa/path"
-	"github.com/Knowckx/ainfa/scatter"
-	"github.com/Knowckx/ainfa/util"
+	"github.com/Knowckx/infa/format"
+	"github.com/Knowckx/infa/parallel"
+	"github.com/Knowckx/infa/path"
+	"github.com/Knowckx/infa/scatter"
+	"github.com/Knowckx/infa/util"
 )
 
 func ShortStr(in string) string {

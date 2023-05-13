@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/Knowckx/ainfa/parallel"
+	"github.com/Knowckx/infa/parallel"
 )
 
 /* 测试并发 */

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/Knowckx/ainfa/path"
+	"github.com/Knowckx/infa/path"
 	"github.com/rs/zerolog/log"
 	"github.com/stretchr/testify/assert"
 	"gopkg.in/yaml.v2"

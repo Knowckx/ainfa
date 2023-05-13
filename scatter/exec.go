@@ -4,7 +4,7 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/Knowckx/ainfa/util"
+	"github.com/Knowckx/infa/util"
 	"github.com/pkg/errors"
 	"github.com/rs/zerolog/log"
 )

@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/Knowckx/ainfa/util"
+	"github.com/Knowckx/infa/util"
 )
 
 func Test_ParseExec(t *testing.T) {

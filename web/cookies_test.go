@@ -3,7 +3,7 @@ package web
 import (
 	"testing"
 
-	infa "github.com/Knowckx/ainfa"
+	infa "github.com/Knowckx/infa"
 )
 
 func Test_PrintCookies(t *testing.T) {

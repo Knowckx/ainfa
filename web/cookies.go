@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"os"
 
-	infa "github.com/Knowckx/ainfa"
-	"github.com/Knowckx/ainfa/util"
+	infa "github.com/Knowckx/infa"
+	"github.com/Knowckx/infa/util"
 	"github.com/rs/zerolog/log"
 	"github.com/zellyn/kooky"
 	"github.com/zellyn/kooky/browser/chrome"
