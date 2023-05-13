@@ -16,7 +16,7 @@ func GetHostCookies(host string) []*http.Cookie {
 	outs := []*http.Cookie{}
 	for _, ko := range koo {
 		if ko.Domain == host {
-			ht := ko.HTTPCookie()
+			ht := ko.Cookie
 			outs = append(outs, &ht)
 		}
 	}
