@@ -2,8 +2,6 @@ package infa
 
 import (
 	"fmt"
-	"log"
-	"time"
 )
 
 const TipExit = "type in 'exit' or 'quit'"
@@ -32,14 +30,4 @@ func GetInput(c chan<- bool) {
 		}
 	}
 	c <- true
-}
-
-// RecordExecTime Record function execution time
-// useage: defer ExecTime(functionName)()
-func RecordExecTime(funcName string) func() {
-	start := time.Now()
-	log.Printf("enter function %s", funcName)
-	return func() {
-		log.Printf("exit function %s. Time Usege:%s", funcName, time.Since(start))
-	}
 }
