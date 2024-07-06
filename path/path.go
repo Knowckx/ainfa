@@ -9,10 +9,10 @@ import (
 const InfaProjName = "in-fa"
 
 func GetAppPath() string {
-	dir, _ := os.Getwd()
+	dir, _ := os.Getwd() // 当前terminal的路径
 
 	exePath := os.Args[0]
-	if len(exePath) == 0 || strings.HasSuffix(exePath, ".test") {
+	if len(exePath) == 0 || strings.HasSuffix(exePath, ".test") || strings.Contains(exePath, `:\`) {
 		return dir
 	}
 
