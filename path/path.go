@@ -10,14 +10,13 @@ const InfaProjName = "in-fa"
 
 func GetAppPath() string {
 	exePath := os.Args[0]
-	if strings.Contains(exePath, `:\`) {
-		return exePath
-	}
 	dir, _ := os.Getwd() // 当前terminal的路径
 	if len(exePath) == 0 || strings.HasSuffix(exePath, ".test") {
 		return dir
 	}
-
+	if strings.Contains(exePath, `:\`) {
+		return exePath
+	}
 	sep := string(os.PathSeparator)
 	sepCount := strings.Count(exePath, sep)
 	if sepCount <= 1 {
