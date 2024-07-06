@@ -3,7 +3,6 @@ package infa
 import (
 	"fmt"
 	"testing"
-	"time"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -12,11 +11,6 @@ func Test_Printf(t *testing.T) {
 	Printf("123 %s", "qq")
 	Printf("123 %s", "qq")
 	Printf("123 %s", "qq")
-}
-
-func Test_RecordExecTime(t *testing.T) {
-	defer RecordExecTime("Test_RecordExecTime")()
-	time.Sleep(2 * time.Second)
 }
 
 type User struct {

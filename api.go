@@ -35,3 +35,12 @@ func LocFilePath(projName string, mids ...string) string {
 func NewParallel(max int) *parallel.WaitPool {
 	return parallel.NewWaitPool(max)
 }
+
+// 泛型的三元表达式函数
+func Return[T any](boolExpression bool, trueReturnValue, falseReturnValue T) T {
+	if boolExpression {
+		return trueReturnValue
+	} else {
+		return falseReturnValue
+	}
+}
