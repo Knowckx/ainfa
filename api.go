@@ -6,6 +6,7 @@ import (
 	"github.com/Knowckx/infa/path"
 	"github.com/Knowckx/infa/scatter"
 	"github.com/Knowckx/infa/util"
+	"k8s.io/apimachinery/pkg/util/rand"
 )
 
 func ShortStr(in string) string {
@@ -43,4 +44,9 @@ func Return[T any](boolExpression bool, trueReturnValue, falseReturnValue T) T {
 	} else {
 		return falseReturnValue
 	}
+}
+
+// 泛型的数组随机数
+func GetRandomElement[T any](slice []T) T {
+	return slice[rand.Intn(len(slice))]
 }
