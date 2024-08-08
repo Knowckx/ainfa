@@ -15,5 +15,5 @@ func Test_QuickTest(t *testing.T) {
 	avger.AddNumber(1)
 	avger.AddNumber(2.1)
 	avger.AddNumber(5)
-	fmt.Println(avger.avg)
+	fmt.Println(avger.Avg)
 }

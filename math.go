@@ -6,7 +6,7 @@ package infa
 type Averager struct {
 	sum   float64
 	count int
-	avg   float64
+	Avg   float64
 }
 
 // 定义一个方法来添加一个新的数并重新计算平均值
@@ -19,5 +19,5 @@ func (ac *Averager) AddNumber(num any) {
 	}
 	ac.sum += useValue
 	ac.count++
-	ac.avg = ac.sum / float64(ac.count)
+	ac.Avg = ac.sum / float64(ac.count)
 }
