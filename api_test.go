@@ -10,7 +10,10 @@ func Test_LocFilePath(t *testing.T) {
 	fmt.Println(out)
 }
 
-func Test_V3(t *testing.T) {
-	a := Return(1 > 1, 1, 2)
-	fmt.Println(a)
+func Test_QuickTest(t *testing.T) {
+	avger := Averager{}
+	avger.AddNumber(1)
+	avger.AddNumber(2.1)
+	avger.AddNumber(5)
+	fmt.Println(avger.avg)
 }
